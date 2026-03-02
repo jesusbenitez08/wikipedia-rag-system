@@ -1,46 +1,114 @@
-Reflection Report
+# Wikipedia RAG System
 
-For this project I picked the Wikipedia article on Willem Dafoe as the main source. Since I think the article covers his life, acting career, major roles, awards, and personal background. Since it has a mix of career highlights and detailed background, it believe it had a lot of material to test and it actually worked well for testing in general.
+A Retrieval-Augmented Generation (RAG) application that extracts, processes, and queries Wikipedia content using natural language processing techniques.
 
-5 Deep Dive Questions with the answers the AI gave me:
+---
 
-What are some of Willem Dafoe’s popular roles?
-He’s widely known for Platoon, The Last Temptation of Christ, Shadow of the Vampire, and The Florida Project. All of these got him major praise, and some led to Oscar nominations.
+## Overview
 
-How did he get into acting?
-He started in experimental theater—especially The Wooster Group in NYC—before transitioning into film.
+This project demonstrates how external knowledge sources can be integrated into an AI pipeline to improve information retrieval and question answering. The system retrieves Wikipedia article content, preprocesses textual data, and enables intelligent querying through a Retrieval-Augmented Generation workflow.
 
-Who did he play in Spiderman, and why is that important?
-He played Norman Osborn (aka Green Goblin). It became one of his most iconic roles and made him a household name in pop culture.
+The project focuses on evaluating how document chunking strategies and contextual overlap influence retrieval accuracy and response quality.
 
-How many Oscar nominations does he has and for what films?
-He’s been nominated four times—for Platoon, Shadow of the Vampire, The Florida Project, and At Eternity’s Gate.
+---
 
-What is his take on acting?
-He’s all about intensity and depth. He often picks unconventional roles and fully commits to them, working closely with directors to build unique characters.
+## Features
 
-What I Noticed While Testing
-Retrieval Quality Based on Chunk Size & Overlap
-Small chunks (like 200 words) were fast but not always helpful for full answers. Sometimes the info was split in between chunks.
+- Wikipedia content extraction
+- Text preprocessing and document parsing
+- Prompt-based querying
+- Retrieval-Augmented Generation pipeline
+- Modular Python implementation
+- Retrieval performance experimentation
 
-Larger chunks (600–800 words) with some overlap (50–100 words) gave much better results, a lot more context and less missed details.
+---
 
-No overlap at all, there were no miss connections between ideas that were just a few sentences apart in the source.
+## Technologies Used
 
-How Good Were the Answers?
-Pretty accurate overall, especially when the chunk size and overlap were tuned right.
+- Python
+- Natural Language Processing (NLP)
+- Information Retrieval
+- Retrieval-Augmented Generation (RAG)
+- Prompt Engineering
 
-I think they were pretty well written, the AI gave fluent, clear answers that were easy to understand.
+---
 
-Some little mistakes, like occasionally, it filled in gaps with assumptions when it couldn’t find a perfect or exact match in the text.
+## Project Structure
 
-Ideas to Make It Better:
-Add more sources, like film interviews or IMDb summaries to give the AI a better pool of info.
+```
+RAG_app.py              Main application logic
+text_extractor.py       Wikipedia text extraction and preprocessing
+prompts.md              Query templates
+Selected_Document.txt   Source document
+requirements.txt        Project dependencies
+```
 
-Rank the results better. Some of the top answers weren’t actually the most relevant. A smarter updated or reranking step could help.
+---
 
-Handle pronouns in a smarter way. Especially with long chunks, the AI sometimes lost track of who “he” or “the actor” was.
+## Installation and Usage
 
-Get real feedback. Human feedback or a better structured evaluation could give better insight on quality.
+### Clone the repository
 
-Make it user more user friendly. A small web app where users type a question and see answers with the sources would be a nice extension.
+```bash
+git clone https://github.com/jesusbenitez08/wikipedia-rag-system.git
+cd wikipedia-rag-system
+```
+
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run the application
+
+```bash
+python RAG_app.py
+```
+
+---
+
+## Retrieval Evaluation
+
+The system was evaluated using multiple document chunking configurations to analyze retrieval effectiveness and generated response quality.
+
+### Observations
+
+- Smaller chunks (~200 tokens) enabled faster retrieval but often lacked sufficient contextual information.
+- Larger chunks (600–800 tokens) improved answer completeness by preserving semantic context.
+- Introducing overlap between chunks (50–100 tokens) significantly reduced information loss across related sections.
+- Retrieval accuracy improved when contextual continuity between document segments was maintained.
+
+### Limitations Identified
+
+- Responses occasionally inferred missing information when retrieval confidence was low.
+- Ranking of retrieved results could be improved through reranking techniques.
+- Pronoun resolution across long text segments remained challenging in some cases.
+
+---
+
+## Example Use Case
+
+The system retrieves structured information from Wikipedia articles and enables users to query knowledge sources efficiently using AI-assisted retrieval techniques.
+
+---
+
+## Future Improvements
+
+- Vector database integration (FAISS or ChromaDB)
+- Retrieval reranking models
+- Multi-document knowledge ingestion
+- LLM API integration
+- Web-based user interface
+- Quantitative evaluation metrics
+
+---
+
+## Learning Outcomes
+
+This project explores practical challenges involved in building Retrieval-Augmented Generation systems, including:
+
+- Document preprocessing strategies
+- Context preservation during retrieval
+- Prompt-driven querying workflows
+- Trade-offs between performance and contextual accuracy
