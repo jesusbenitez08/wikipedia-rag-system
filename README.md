@@ -3,6 +3,7 @@ Reflection Report
 For this project I picked the Wikipedia article on Willem Dafoe as the main source. Since I think the article covers his life, acting career, major roles, awards, and personal background. Since it has a mix of career highlights and detailed background, it believe it had a lot of material to test and it actually worked well for testing in general.
 
 5 Deep Dive Questions with the answers the AI gave me:
+
 What are some of Willem Dafoe’s popular roles?
 He’s widely known for Platoon, The Last Temptation of Christ, Shadow of the Vampire, and The Florida Project. All of these got him major praise, and some led to Oscar nominations.
 
